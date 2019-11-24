@@ -5,14 +5,22 @@
 		<div class="content-topbar container h-100">
 			<div class="left-topbar">
 				<span class="left-topbar-item flex-wr-s-c">
-					<span>
-						Ha Noi, VN
+					<span id="location">
+						
 					</span>
-
-					<img class="m-b-1 m-rl-8" src="{{ asset('core/images/icons/icon-night.') }}png" alt="IMG">
-
-					<span>
-						HI 32° LO 36°
+					
+					<span id="icon-weather">
+						
+					</span>
+					<span id="location">
+						Hanoi, Viet Nam
+					</span>
+					<span id="description-weather" class="p-l-10">
+						 
+					</span>
+				
+					<span id="temperature" class="p-l-4">
+						
 					</span>
 				</span>
 
@@ -45,6 +53,9 @@
 
 				</a>
 				<div class="dropdown-menu">
+					@if(Session::get('role')==0)
+						<a class="dropdown-item" href="{{route('admin.admin')}}">admin</a>
+					@endif
 					<a class="dropdown-item" href="{{ asset('profile') }}">Info</a>
 					<a class="dropdown-item" href="{{ url('log-out') }}">Logout</a>					
 				</div>	
@@ -240,13 +251,13 @@
 
 												<div class="p-t-10">
 													<h5 class="p-b-5">
-														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+														<a href="{{route('view.detail',['slug'=>$detail['post_slug'],'id'=>$detail['post_id']])}}" class="f1-s-5 cl3 hov-cl10 trans-03">
 															{{ $detail['title'] }}
 														</a>
 													</h5>
 
 													<span class="cl8">
-														<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+														<a href="{{ route('view.cate',['id'=>$content['id'],'slug'=>$content['slug']]) }}" class="f1-s-6 cl8 hov-cl10 trans-03">
 															{{ $detail['cate_name'] }}
 														</a>
 
@@ -282,13 +293,13 @@
 
 												<div class="p-t-10">
 													<h5 class="p-b-5">
-														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+														<a href="{{route('view.detail',['slug'=>$detail['post_slug'],'id'=>$detail['post_id']])}}" class="f1-s-5 cl3 hov-cl10 trans-03">
 															{{ $detail['title'] }}
 														</a>
 													</h5>
 
 													<span class="cl8">
-														<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+														<a href="{{ route('view.cate',['id'=>$content['id'],'slug'=>$content['slug']]) }}" class="f1-s-6 cl8 hov-cl10 trans-03">
 															{{ $detail['cate_name'] }}
 														</a>
 

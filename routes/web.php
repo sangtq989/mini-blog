@@ -80,6 +80,20 @@ Route::group([
 	Route::post('/comment/store', 'CommentController@store')->name('add');
 	Route::post('reply/store/{commentId}','CommentController@ReplyStore')->name('rep');
 });
+
+Route::group([
+	'middleware' => 'admin',
+	// 'namespace' => 'AdminController',
+	'as' => 'admin.'
+],function()
+{
+	Route::get('admin/dashboard','MasterAdminController@index')->name('admin');
+	
+	Route::get('admin/approved-post/{id}','MasterAdminController@approved')->name('approved');
+	Route::get('admin/not-approved/{id}', 'MasterAdminController@notapproved')->name('notapproved');
+
+
+});
 Route::post('/upload_image', function() {
     $CKEditor = Input::get('CKEditor');
     $funcNum = Input::get('CKEditorFuncNum');

@@ -5,7 +5,7 @@
 						<a href="{{route('view.detail',['slug'=>$feature[0]['slug'],'id'=>$feature[0]['id']])}}" class="dis-block how1-child1 trans-03"></a>
 
 						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-							<a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+							<a href="" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
 								{{ $feature[0]['cate_name'] }}
 							</a>
 

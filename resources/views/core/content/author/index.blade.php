@@ -9,7 +9,7 @@
 	<div class="col-md-10 col-lg-8 p-b-80">
 					<div class="row">
 						@foreach($post as $item)
-						<div class="col-sm-6 p-r-25 p-r-15-sr991">
+						<div class="col-sm-6 p-r-25 p-r-15-sr991 post-item-load">
 							<!-- Item latest -->	
 							<div class="m-b-45">
 								<a href="{{ route('view.detail',['slug'=>$item['slug'],'id'=>$item['id']]) }}" class="wrap-pic-w hov1 trans-03">
@@ -44,10 +44,9 @@
 					</div>
 
 					<!-- Pagination -->
-					<div class="flex-wr-s-c m-rl--7 p-t-15">
-						<a href="#" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 pagi-active">1</a>
-						<a href="#" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7">2</a>
-					</div>
+					<a href="#" id="loadMore" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03">
+							Load More
+						</a>
 				</div>
 
 @endsection

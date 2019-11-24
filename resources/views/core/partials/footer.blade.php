@@ -87,35 +87,19 @@
 						</div>
 
 						<ul class="m-t--12">
+							
+							@foreach($info['cateContent'] as $item)
+							@php
+								$i=count($item['post'])
+							@endphp
 							<li class="how-bor1 p-rl-5 p-tb-10">
-								<a href="#" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-									Javascript (2)
+								<a href="{{ route('view.cate',['id'=>$item['id'],'slug'=>$item['slug']]) }}" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
+									{{$item['name']}} ({{$i}})
 								</a>
 							</li>
+							
+							@endforeach
 
-							<li class="how-bor1 p-rl-5 p-tb-10">
-								<a href="#" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-									HTML,CSS (2)
-								</a>
-							</li>
-
-							<li class="how-bor1 p-rl-5 p-tb-10">
-								<a href="#" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-									Lập trình android (3)
-								</a>
-							</li>
-
-							<li class="how-bor1 p-rl-5 p-tb-10">
-								<a href="#" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-									Lập trình PHP (2)
-								</a>
-							</li>
-
-							<li class="how-bor1 p-rl-5 p-tb-10">
-								<a href="#" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-									Lập trình Python (3)
-								</a>
-							</li>
 						</ul>
 					</div>
 				</div>
@@ -127,7 +111,7 @@
 				<span class="f1-s-1 cl0 txt-center">
 					Copyright © 2018 
 
-					<a href="#" class="f1-s-1 cl10 hov-link1">Colorlib.</a>
+					<a href="facebook.com/sangtq969" class="f1-s-1 cl10 hov-link1">Sang Pham.</a>
 
 					All rights reserved.
 				</span>

@@ -21,6 +21,7 @@ class DetailController extends MasterController
 		$postid=$data['detail']->id;
 
 		$a =  $request->session()->get('user_name');
+		//dd($a);
 		//dd(gettype($user));
 		 $data['userdata'] = $user->getInfoUser($a);
 		 $comment1 =  $comment->getParentComment($postid);

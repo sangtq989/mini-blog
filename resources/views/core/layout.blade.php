@@ -27,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('core/css/profile-pic.css') }}">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('core/css/comment.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('core/css/load-more.css') }}">
 	@stack('style')
 </head>
 <body class="animsition">
@@ -49,17 +50,12 @@
 				</span>
 
 				<span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">
+					@foreach($info['popular'] as $item)
 					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Interest rate angst trips up US equity bull market
+						{{$item['title']}}
 					</span>
+					@endforeach
 					
-					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Designer fashion show kicks off Variety Week
-					</span>
-
-					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Microsoft quisque at ipsum vel orci eleifend ultrices
-					</span>
 				</span>
 			</div>
 
@@ -194,7 +190,17 @@
 	</div>
 
 	<!-- modal login -->	
+		<div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document" data-dismiss="modal">
+			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
 
+			<div class="wrap-video-mo-01">
+				<div class="video-mo-01">
+					<iframe src="https://www.youtube.com/embed/wJnBTPUQS5A?rel=0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	
 
@@ -218,7 +224,29 @@
 	<script src="{{ asset('core/js/additional-methods.js') }}"></script>
 	{{-- <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script> --}}
 	<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+	<script src="{{ asset('core/js/load-more.js') }}"></script>
 
+	<script type="text/javascript">
+		
+     
+    $(document).ready(function(){
+         
+        //Weather API
+        //https://apidev.accuweather.com/developers/weatherIcons
+        $.get( "http://apidev.accuweather.com/currentconditions/v1/1-353412_1_AL.json?language=en&apikey=hoArfRosT1215", function( data ) {
+            var iconUrl = "https://developer.accuweather.com/sites/default/files/" + data[0]['WeatherIcon'] + "-s.png";
+             
+            $( '#icon-weather').html('<img src="' + iconUrl + '" />' );
+             
+             
+            $( '#description-weather').text(" "+ data[0]['WeatherText'] );
+            $( '#temperature').text( data[0]['Temperature']['Metric']['Value'] + ' ' + data[0]['Temperature']['Metric']['Unit'] );
+
+            
+        });
+    })
+
+	</script>
 	
 	<!--===============================================================================================-->
 
@@ -226,4 +254,6 @@
 
 
 </body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0"></script>
 </html>

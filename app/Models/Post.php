@@ -118,6 +118,16 @@ class Post extends Model
               $data = json_decode(json_encode($data),true);
         return $data;
     }
+    public function getall()
+    {
+         $data = DB::table('posts as p')
+         ->select('p.status','p.title','p.id','p.slug','p.publish_date','u.name as author','u.email as author_email','c.name as cate_name')
+         ->join('users as u','p.user_id','=','u.id')
+         ->join('categories as c','c.id','=','p.categories_id')
+         ->get();
+          $data = json_decode(json_encode($data),true);
+        return $data;
+    }
     
 
 }

@@ -19,7 +19,11 @@ class Tag extends Model
     }
      public function getPostByIDTag($id)
     {
-       $data = DB::table('post_tag')->select('*')->where('post_tag.tag_id',$id)->first();
+       $data = DB::table('post_tag as pt')
+       ->select('p.slug as post_slug','p.id as post_id','p.thumbnail','p.title','u.name as author','p.publish_date','p.sapo')
+       ->join("posts as p","p.id",'=','pt.post_id')
+       ->join('users as u','u.id','=','p.user_id')
+       ->where('pt.tag_id',$id)->get();
        $data = json_decode(json_encode($data),true);
         return $data;
     }

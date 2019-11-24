@@ -126,7 +126,7 @@
 					<div class="p-t-20">
 						<h5 class="p-b-5">
 							<a href="{{ route('view.detail',['slug'=>$post['post_slug'],'id'=>$post['post_id']]) }}" class="f1-m-3 cl2 hov-cl10 trans-03">
-								By {{ $post['title'] }}
+								{{ $post['title'] }}
 							</a>
 						</h5>
 

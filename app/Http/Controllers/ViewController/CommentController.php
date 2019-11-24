@@ -24,16 +24,18 @@ class CommentController extends Controller
 			'body' => $request->comment,
 			'created_at' => date('Y-m-d'),
 		];
+
 		$comment->storeComment($data);
 
 
 
-		return back();
+		return redirect()->to(url()->previous() . '#section1');
 	}
 	public function ReplyStore($commentId,Request $request)
 	{
 		$comment = new Comment;
 		$user = new Users;
+		//dd($commentId);
 		//dd($request->all());
 		$data=[
 			'post_id' => $request->post_id ,
@@ -43,7 +45,9 @@ class CommentController extends Controller
 			'body' => $request->reply,
 			'created_at' => date('Y-m-d'),
 		];
+
 		$comment->storeReply($data);
-		return back();
+		
+		return redirect()->to(url()->previous() . '#section1');
 	}
 }

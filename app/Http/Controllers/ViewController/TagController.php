@@ -10,8 +10,8 @@ class TagController extends MasterController
 {
     public function index($id,$slug,Tag $tag)
     {
-    	$post =new Post;
-    	$data['post']=$post->getPostByTag($id);
+    	$post =new Tag;
+    	$data['post']=$post->getPostByIDTag($id);
     	
     	//dd($data);
     	return view('core.content.tag.index',$data);

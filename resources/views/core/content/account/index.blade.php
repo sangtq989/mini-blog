@@ -97,7 +97,13 @@
 			<!-- Item post -->
 
 			@foreach($user_post as $key =>$value)
-			<div class="flex-wr-sb-s p-t-40 p-b-15 how-bor2">
+			<div class="flex-wr-sb-s p-t-40 p-b-15 how-bor2 post-item-load">
+				@if($value['status']==3)
+									<a class="dropdown-item bg-success text-white">Pennding</a>
+								@elseif($value['status']==0)
+								<a class="dropdown-item bg-danger text-white ">Not aproved</a>
+								
+								@endif
 				<a href="{{ route('view.detail',['slug'=>$value['slug'],'id'=>$value['id']]) }}" class="size-w-8 wrap-pic-w hov1 trans-03 w-full-sr575 m-b-25">
 					<img src="{{ URL::to('/') }}/upload/img/{{ $value['thumbnail'] }}" alt="IMG">
 				</a>
@@ -133,6 +139,8 @@
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="{{ route('acc.edit',['slug'=>$value['slug'],'id'=>$value['id']]) }}">Edit</a>
 									<a class="dropdown-item" data-toggle="modal" data-target="#confirmModal{{ $value['id'] }}">Delete</a>
+								@if($value['status']==1)
+
 									@if($value['status'] == 1)
 									<a class="dropdown-item" href="{{ route('acc.off',['id'=>$value['id']]) }}">Turn off comment</a>
 									@elseif($value['status']==2)
@@ -140,9 +148,17 @@
 									@endif
 									@if($value['status'] == 1)
 									<a class="dropdown-item bg-danger text-white " href="{{ route('acc.disable',['id'=>$value['id']]) }}">Disable post</a>
-									@else
-									<a class="dropdown-item bg-success text-white" href="{{ route('acc.enable',['id'=>$value['id']]) }}">Publish post</a>
+									
 									@endif
+
+
+								@elseif($value['status']==3)
+									<a class="dropdown-item bg-success text-white">Pennding</a>
+								@elseif($value['status']==0)
+								<a class="dropdown-item bg-danger text-white ">Not aproved</a>
+								@elseif($value['status'] == 4)
+									<a class="dropdown-item bg-success text-white" href="{{ route('acc.enable',['id'=>$value['id']]) }}">Publish post</a>
+								@endif
 
 								</div>
 							</div>					
@@ -166,7 +182,7 @@
 
 		</div>
 		@if($user_post)
-		<a href="#" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03">
+		<a href="" id="loadMore" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03">
 			Load More
 		</a>
 		@else

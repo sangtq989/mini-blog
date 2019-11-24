@@ -82,11 +82,11 @@ class PostAccountController extends MasterController
         $nameFile = null;      
 
         $publish = $request->publishPost;
-        $status = 0;
-        if ($publish === 'on') {
-            $status = 1;
-            $publishDate = date('Y-m-d H:i:s');
-        }
+        
+        // if ($publish === 'on') {
+        //     $status = 1;
+        //     $publishDate = date('Y-m-d H:i:s');
+        // }
 
         if ($request->hasFile('thumbnail')) {
                 //kiem tra xem file co bi loi ko
@@ -108,8 +108,8 @@ class PostAccountController extends MasterController
         'sapo'=> $sapoPost,
         'categories_id'=> $categories,
         'thumbnail' => $nameFile,
-        'status'=> $status,
-        'publish_date'=>$publishDate,
+        'status'=> 3,
+        'publish_date'=>date('Y-m-d H:i:s'),
                 // 'lang_id'=> $language,
         'user_id'=>$userId,
         'created_at' =>date('Y-m-d'),
@@ -202,14 +202,11 @@ class PostAccountController extends MasterController
         $tag = $request->tags;
         $userId= $request->session()->get('id');
         $publish = $request->publishPost;
-        $status = 0;
+        $status = 3;
         $nameFile = null;      
 
         
-        if ($publish === 'on') {
-            $status = 1;
-            $publishDate = date('Y-m-d H:i:s');
-        }
+       
 
         if ($request->hasFile('thumbnail')) {
             //kiem tra xem file co bi loi ko
@@ -231,6 +228,7 @@ class PostAccountController extends MasterController
         'thumbnail'=>$nameFile,
         'categories_id'=>$categories,
         'user_id'=>$userId,
+        'status' => $status,
         'updated_at'=> date('Y-m-d'),
     ];
 
@@ -270,7 +268,7 @@ class PostAccountController extends MasterController
      public function disable(Request $request,$id)
      {
 
-        DB::table('posts')->where('id', $id)->update(['status'=>0]);
+        DB::table('posts')->where('id', $id)->update(['status'=>4]);
         return redirect()->back();
     }
     public function enable(Request $request,$id)

@@ -6,7 +6,7 @@
 	</div>
 	<div class="row">
 		@foreach($posts['data'] as $item)
-		<div class="col-sm-6 p-r-25 p-r-15-sr991">
+		<div class="col-sm-6 p-r-25 p-r-15-sr991 post-item-load">
 			<!-- Item latest -->	
 			<div class="m-b-45">
 				<a href="{{ route('view.detail',['slug'=>$item['post_slug'],'id'=>$item['post_id']]) }}" class="wrap-pic-w hov1 trans-03">
@@ -41,8 +41,8 @@
 	</div>
 
 	<!-- Pagination -->
-	<div class="flex-wr-s-c m-rl--7 p-t-15">
-		{{ $paginate->links() }}
-	</div>
+	<a href="#" id="loadMore" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03">
+							Load More
+						</a>
 </div>
 @endsection

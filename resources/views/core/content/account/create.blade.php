@@ -57,10 +57,10 @@
 					@endforeach
 				</select>
 			</div>
-			<div class="form-group">
+			{{-- <div class="form-group">
 				<label>Publish date</label>
 				<input type="checkbox" class="ml-3" checked="checked" name="publishPost">
-			</div>
+			</div> --}}
 			
 			<button type="submit" class="btn btn-submit">OK</button>
 		</div>

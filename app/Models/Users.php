@@ -34,6 +34,7 @@ class Users extends Model
 
      return $result;
  }
+ 
  public function updateInfo($data,$username)
  {
      DB::table('users')

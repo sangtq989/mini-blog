@@ -8,7 +8,7 @@
 						<div class="m-t--40 p-b-40">
 							@foreach($post as $item)
 							<!-- Item post -->
-							<div class="flex-wr-sb-s p-t-40 p-b-15 how-bor2">
+							<div class="flex-wr-sb-s p-t-40 p-b-15 how-bor2 post-item-load">
 								<a href="{{route('view.detail',['slug'=>$item['post_slug'],'id'=>$item['post_id']]) }}" class="size-w-8 wrap-pic-w hov1 trans-03 w-full-sr575 m-b-25">
 									<img src="{{ URL::to('/') }}/upload/img/{{ $item['thumbnail'] }}" alt="IMG">
 								</a>
@@ -48,7 +48,7 @@
 							
 						</div>
 
-						<a href="#" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03">
+						<a href="#" id="loadMore" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03">
 							Load More
 						</a>
 					</div>

@@ -19,7 +19,7 @@ class LoginController extends Controller
 		if ($user && $pass) {
 			//xu ly dang nhap'
 			$data = $this->getDataUser($user, $pass);
-			// dd($data);
+			 //dd($data);
 			if ($data) {
 				//luu thong tin vao trong session
 				//vao trang dashbroad
@@ -28,6 +28,7 @@ class LoginController extends Controller
 				//~~ $_SESSION['username'] = data['username']
 				$request->session()->put('email', $data['email']);
 				$request->session()->put('id', $data['id']);
+				$request->session()->put('role', $data['role']);		
 				
 				return redirect()->back();
 
