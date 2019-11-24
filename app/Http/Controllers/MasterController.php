@@ -23,7 +23,7 @@ class MasterController extends Controller
 
 
 		foreach ($availCate as $key => $value) {
-			$availCate[$key]['post'] = $post->getPostByCate($value['id']);
+			$availCate[$key]['post'] = $post->getAllPostByCate($value['id']);
 		}
 		//dd
 

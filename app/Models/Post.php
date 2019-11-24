@@ -95,6 +95,18 @@ class Post extends Model
             $data = json_decode(json_encode($data),true);
         return $data;
     }
+    public function getAllPostByCate($cateid){
+        $data = DB::table('posts as p')
+            ->select('p.id as post_id','p.title','p.slug as post_slug','p.sapo','p.thumbnail','p.categories_id','p.publish_date','p.status','p.view_count','u.name as author','u.user_name','c.name as cate_name','c.slug as cate_slug')
+            ->join('categories as c','c.id','=','p.categories_id')
+            ->join('users as u','u.id','=','p.user_id')
+            ->where('categories_id',$cateid)
+            ->where('p.status',1)->orWhere('p.status',2)
+            ->orderBy('p.publish_date','DESC')           
+            ->get();
+            $data = json_decode(json_encode($data),true);
+        return $data;
+    }
     public function allPostFOrCate($cateid)
     {
         $data = DB::table('posts as p')
@@ -103,7 +115,7 @@ class Post extends Model
             ->join('users as u','u.id','=','p.user_id')
             ->where('categories_id',$cateid)    
             ->where('p.status',1)->orWhere('p.status',2)          
-            ->paginate(2);
+            ->get();
             // $data = json_decode(json_encode($data),true);
         return $data;
     }

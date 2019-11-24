@@ -5,7 +5,7 @@
 		<h5 class="f1-m-2 cl3 tab01-title">Category</h5>
 	</div>
 	<div class="row">
-		@foreach($posts['data'] as $item)
+		@foreach($posts as $item)
 		<div class="col-sm-6 p-r-25 p-r-15-sr991 post-item-load">
 			<!-- Item latest -->	
 			<div class="m-b-45">

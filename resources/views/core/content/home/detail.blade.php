@@ -71,7 +71,7 @@
 				</span>
 
 				<div class="flex-wr-s-s size-w-0">
-					<a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/detail/{{$detail->slug}}/{{$detail->id}}" target="_blank" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+					<a  href="https://www.facebook.com/sharer/sharer.php?u={{URL::current()}}" target="_blank" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
 						<i class="fab fa-facebook-f m-r-7"></i>
 						Facebook
 					</a>
